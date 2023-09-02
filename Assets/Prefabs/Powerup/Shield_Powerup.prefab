@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4116416359039582125}
   - component: {fileID: 1574579472381689535}
   - component: {fileID: 3738704428787768920}
-  - component: {fileID: 6030720869260995362}
   - component: {fileID: 7653260581857343930}
   m_Layer: 0
   m_Name: Shield_Powerup
@@ -122,25 +121,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.16825151, y: -0.29443932}
   m_Size: {x: 3.1009884, y: 3.521615}
   m_Direction: 0
---- !u!95 &6030720869260995362
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8435165503565729489}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c5d1cefbad2cb4fbdb06211cfd0d6435, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &7653260581857343930
 MonoBehaviour:
   m_ObjectHideFlags: 0
