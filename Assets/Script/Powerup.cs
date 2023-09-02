@@ -44,7 +44,7 @@ public class Powerup : MonoBehaviour
                     player.SpeedBostActive();
                     break;
                 case 2:
-                    Debug.Log("Collect Sheld");
+                    player.SheildBostActive();
                     break;
                 default:
                     Debug.Log("Default Value");

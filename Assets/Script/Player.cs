@@ -18,15 +18,22 @@ public class Player : MonoBehaviour
     private SpawnManager _spawnManager;
     private bool _isTripleShotActive = false;
     private bool _isSpeedBoostActive = false;
+    private bool _isSheldActive = false;
     [SerializeField]
     private GameObject _tripelshotPrefab;
     [SerializeField]
     private GameObject _speedPowerupPrefab;
+    [SerializeField]
+    private GameObject _shieldVisualizer;
+    [SerializeField]
+    private int _score;
+    private UIManager _uIManager;
 
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
+        _uIManager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
         if (_spawnManager == null)
         {
@@ -97,6 +104,12 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
+        if (_isSheldActive == true)
+        {
+            _isSheldActive = false;
+            _shieldVisualizer.SetActive(false);
+            return;
+        }
         _lives--;
 
         if (_lives < 1)
@@ -128,5 +141,16 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(6.0f);
         _isSpeedBoostActive = false;
+    }
+    public void SheildBostActive()
+    {
+        _shieldVisualizer.SetActive(true);
+        _isSheldActive = true;
+
+    }
+    public void AddScore(int points)
+    {
+        _score += points;
+        _uIManager.UpdateScore(_score);
     }
 }   
