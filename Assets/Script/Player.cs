@@ -112,6 +112,8 @@ public class Player : MonoBehaviour
         }
         _lives--;
 
+        _uIManager.UpdateLives(_lives);
+
         if (_lives < 1)
         {
             _spawnManager.OnPlayerDeath();
@@ -153,4 +155,5 @@ public class Player : MonoBehaviour
         _score += points;
         _uIManager.UpdateScore(_score);
     }
+    
 }   
