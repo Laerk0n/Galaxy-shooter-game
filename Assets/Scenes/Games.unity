@@ -498,8 +498,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1314992949
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 333b0196b7a764df5a7768ead9b69dbc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -604,8 +604,7 @@ MonoBehaviour:
     type: 3}
   _speedPowerupPrefab: {fileID: 6787806155982427910, guid: 957f788aa62af46a6b819c9eac8b0fd6,
     type: 3}
-  _shieldVisualizer: {fileID: 8435165503565729489, guid: 3eca9bc3e85af4d7e82dd9d2ba546100,
-    type: 3}
+  _shieldVisualizer: {fileID: 272050820}
   _score: 0
 --- !u!212 &531789312
 SpriteRenderer:
