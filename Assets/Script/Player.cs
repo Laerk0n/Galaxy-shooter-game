@@ -58,6 +58,7 @@ public class Player : MonoBehaviour
 
         if (_isSpeedBoostActive == false)
         {
+        // Hej här är jag
             transform.Translate(new Vector3(horizontalInputt, verticalInputt, 0) * _speed * Time.deltaTime);
         }
         else
