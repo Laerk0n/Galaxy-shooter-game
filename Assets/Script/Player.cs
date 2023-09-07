@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    
+
     [SerializeField]
     private float _speed = 3.5f;
     private float _speedMultiplier = 2;
@@ -56,16 +56,8 @@ public class Player : MonoBehaviour
         float horizontalInputt = Input.GetAxis("Horizontal");
         float verticalInputt = Input.GetAxis("Vertical");
 
-        if (_isSpeedBoostActive == false)
-        {
-            transform.Translate(new Vector3(horizontalInputt, verticalInputt, 0) * _speed * Time.deltaTime);
-        }
-        else
-        {
-            transform.Translate(new Vector3(horizontalInputt, verticalInputt, 0) * _speed * _speedMultiplier * Time.deltaTime);
-        }
-
-
+        Speedboost(horizontalInputt, verticalInputt, _speed, _isSpeedBoostActive ? _speedMultiplier : 1);
+        
         if (transform.position.y >= 2)
         {
             transform.position = new Vector3(transform.position.x, 2, 0);
@@ -84,6 +76,13 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(10.8f, transform.position.y, 0);
         }
     }
+
+    void Speedboost(float horizontalInputt, float verticalInputt, float speed, float speedMultiplier = 0)
+    {
+        
+        transform.Translate(new Vector3(horizontalInputt, verticalInputt, 0) * speed * speedMultiplier * Time.deltaTime);
+    }
+
     void FireLaser()
     {
         {
@@ -128,7 +127,7 @@ public class Player : MonoBehaviour
 
     IEnumerator TripelPowerDownRutin()
     {
-       
+
         yield return new WaitForSeconds(5.0f);
         _isTripleShotActive = false;
     }
@@ -155,5 +154,5 @@ public class Player : MonoBehaviour
         _score += points;
         _uIManager.UpdateScore(_score);
     }
-    
-}   
+
+}
