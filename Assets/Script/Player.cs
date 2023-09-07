@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("The Spawn Manger is NULL.");
         }
-    }
+    } // hej
 
     void Update()
     {
