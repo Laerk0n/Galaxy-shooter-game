@@ -13,25 +13,35 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _fireRate = 0.5f;
     private float _canFire = -1f;
+
     [SerializeField]
     private int _lives = 3;
     private SpawnManager _spawnManager;
     private bool _isTripleShotActive = false;
     private bool _isSpeedBoostActive = false;
     private bool _isSheldActive = false;
+
     [SerializeField]
     private GameObject _tripelshotPrefab;
+
     [SerializeField]
     private GameObject _speedPowerupPrefab;
+
     [SerializeField]
     private GameObject _shieldVisualizer;
+
+    [SerializeField]
+    private GameObject _leftEngine, _rightEngine;
+    
+
     [SerializeField]
     private int _score;
+
     private UIManager _uIManager;
 
     void Start()
     {
-        transform.position = new Vector3(0, 0, 0);
+        transform.position = new Vector3(0, -2.63f, 0);
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
         _uIManager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
@@ -111,7 +121,19 @@ public class Player : MonoBehaviour
         }
         _lives--;
 
+        if (_lives == 2)
+        {
+            _leftEngine.SetActive(true);
+        }
+        else if (_lives == 1)
+        {
+            _rightEngine.SetActive(true);
+        }
+
+       
+
         _uIManager.UpdateLives(_lives);
+
 
         if (_lives < 1)
         {

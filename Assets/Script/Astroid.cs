@@ -4,20 +4,34 @@ using UnityEngine;
 
 public class Astroid : MonoBehaviour
 {
-    public float _rotationSpeed = 5f;
-    public float _speed = 5f;
+    [SerializeField]
+    public float _rotationSpeed = 12f;
+    [SerializeField]
+    private GameObject _explosionPrefab;
+    private SpawnManager _spawnManager;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.down * _speed * Time.deltaTime);
-        transform.Translate(Vector3.down * _rotationSpeed * Time.deltaTime);
+
+        transform.Rotate(Vector3.forward * _rotationSpeed * Time.deltaTime);
+
         // måste få astroiden att rotera.
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Laser")
+        {
+            Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(other.gameObject);
+            _spawnManager.StartSpawning();
+            Destroy(this.gameObject, 0.25f);
+        }
     }
 }
